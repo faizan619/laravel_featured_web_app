@@ -6,7 +6,7 @@
     </div>
     <div class="flex-1">
         <ul class="flex gap-8 ">
-            <a href="#" class="hover:underline text-xl "><li>Home</li></a>
+            <a href="{{route('task.index')}}" class="hover:underline text-xl "><li>Task App</li></a>
             <a href="#" class="hover:underline text-xl "><li>Create</li></a>
             <a href="#" class="hover:underline text-xl "><li>Feedback</li></a>
         </ul>
