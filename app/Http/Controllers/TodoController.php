@@ -61,24 +61,45 @@ class TodoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Todo $todo)
+    public function edit(string $id)
     {
-        //
+        $todos = DB::table('todos')->find($id);
+        // return $todos;
+        return view('todo.edittodo',compact('todos'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Todo $todo)
+    public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'uploaded_by' => 'required',
+            'task_title' => 'required',
+            'task_desc' => 'required',
+            'task_time' => 'required',
+        ]);
+    
+        $updatedData = DB::table('todos')
+            ->where('id', $id)
+            ->update($validatedData);
+    
+        if ($updatedData) {
+            // return redirect()->route('task.index')->with('success', 'Task updated successfully!');
+            return redirect()->route('task.index');
+        } else {
+            // return redirect()->back()->withErrors(['update' => 'Failed to update the task!']);
+            return redirect()->back();
+        }
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Todo $todo)
+    public function destroy(string $id)
     {
-        //
+        DB::table('todos')->where("id",$id)->delete();
+        return redirect()->route('task.index');
     }
 }
