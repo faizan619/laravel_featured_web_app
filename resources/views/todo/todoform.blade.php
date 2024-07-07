@@ -31,8 +31,14 @@
                     <p>Complete within : {{($user->task_time)}}</p>
                 </div>
                 <div class="flex justify-between gap-10">
-                    <a href="#"><button class="px-5 py-2 hover:shadow-white hover:shadow-md transition-all rounded-md bg-blue-600">Update</button></a>
-                    <a href="#"><button class="px-5 py-2 hover:shadow-white hover:shadow-md transition-all rounded-md bg-red-600">Delete</button></a>
+                    <a href="{{route('task.edit',$user->id)}}"><button class="px-5 py-2 hover:shadow-white hover:shadow-md transition-all rounded-md bg-blue-600">Update</button></a>
+                    <form action="{{route('task.destroy',$user->id)}}" method="POST">
+                        @csrf
+                        @method("DELETE")
+                        <button type="submit" class="px-5 py-2 hover:shadow-white hover:shadow-md transition-all rounded-md bg-red-600">Delete</button>
+                    </form>
+                    {{-- <a href="{{route('task.destroy',$user->id)}}">
+                    </a> --}}
                 </div>
             </div>
             @endforeach
