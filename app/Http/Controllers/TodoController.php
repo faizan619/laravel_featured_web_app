@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Todo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class TodoController extends Controller
@@ -14,7 +15,12 @@ class TodoController extends Controller
     public function index()
     {
         $users = DB::table('todos')->get();
-        return view('taskpage',compact("users"));
+        if(Auth::check()){
+            return view('taskpage',compact("users"));
+        }
+        else{
+            return redirect()->route('loginpage');
+        }
     }
 
     /**
