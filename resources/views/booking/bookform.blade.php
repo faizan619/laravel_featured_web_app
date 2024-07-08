@@ -1,27 +1,31 @@
 <div class="flex justify-center  min-h-screen">
     <div class="w-full">
-        <div class="flex justify-center h-60 items-end p-2 gap-10" style="background-image: url('assets/main_back.jpg');background-size: cover">
-            <div class="h-24 border-4 rounded-md w-24" style="background-image: url('assets/first_book.jpg');background-size: cover"></div>
-            <div class="h-24 border-4 rounded-md w-24" style="background-image: url('assets/second_book.jpg');background-size: cover"></div>
-            <div class="h-24 border-4 rounded-md w-24" style="background-image: url('assets/third_book.jpg');background-size: cover"></div>
+        {{-- <div class="flex justify-center h-60 items-end p-2 gap-10" style="background-image: url('assets/main_back.jpg');background-size: cover"> --}}
+        <div class="flex justify-center h-60 items-end p-2 gap-10 bg-gray-500">
+            {{-- <div class="h-24 border-4 rounded-md w-24" style="background-image: url('assets/first_book.jpg');background-size: cover"></div> --}}
+            <div class="h-24 border-4 rounded-md w-24 bg-gray-500"></div>
+            {{-- <div class="h-24 border-4 rounded-md w-24" style="background-image: url('assets/second_book.jpg');background-size: cover"></div> --}}
+            <div class="h-24 border-4 rounded-md w-24 bg-gray-500"></div>
+            {{-- <div class="h-24 border-4 rounded-md w-24" style="background-image: url('assets/third_book.jpg');background-size: cover"></div> --}}
+            <div class="h-24 border-4 rounded-md w-24 bg-gray-500"></div>
         </div>
         <div class="flex flex-col gap-3 my-7">
             <h1 class="text-center font-bold text-4xl text-[#37474f]">Hotel Booking Form</h1>
             <p class="text-center">Experience Something new Every Moment</p>
         </div>
-        <form action="{{route('booking.store')}}" method="POST" class="flex flex-col gap-5 items-center justify-center py-10">
+        <form action="{{route('booking.store')}}" method="POST" class="flex flex-col gap-5 items-center justify-center py-10 bg-gray-200">
             @csrf
             <div class="flex gap-7 w-[60%]">
                 <label for="fname" class="flex flex-col gap-2 w-full">
                     <p class="text-xl">Name</p>
                     <div class="flex gap-5">
-                        <input type="text" name="username" id="fname" value="{{Auth::check()?Auth::user()->name:''}}" placeholder="Eg: John Doe"
+                        <input type="text" name="name" id="fname" value="{{Auth::check()?Auth::user()->name:''}}" placeholder="Eg: John Doe"
                             class="border-2 w-full hover:border-[#82498c] transition-all p-2 rounded-md" >
                     </div>
                 </label>
                 <label for="email" class="flex flex-col gap-2 w-full">
                     <p class="text-xl">E-mail </p>
-                    <input type="email" name="useremail" id="email" value="{{Auth::check()?Auth::user()->email:''}}" placeholder="Eg: JohnDoe@gmail.com"
+                    <input type="email" name="email" id="email" value="{{Auth::check()?Auth::user()->email:''}}" placeholder="Eg: JohnDoe@gmail.com"
                         class="border-2 w-full p-2 hover:border-[#82498c] transition-all rounded-md"  >
                 </label>
             </div>
@@ -39,7 +43,7 @@
                 </label>
                 <label for="guest" class="flex flex-col gap-2 w-full">
                     <p class="text-xl">No. of Guest</p>
-                    <input type="number" name="user_quest" id="quest" class="border-2 hover:border-[#82498c] transition-all w-full p-2 rounded-md"
+                    <input type="number" name="guest" id="quest" class="border-2 hover:border-[#82498c] transition-all w-full p-2 rounded-md"
                         placeholder="Eg: 23" required>
                 </label>
             </div>
@@ -79,7 +83,7 @@
             <div class="w-[60%]">
                 <label for="special_request" class="flex flex-col gap-2 w-full">
                     <p class="text-xl">Special Request (if any)</p>
-                    <textarea name="sp_req" id="special_request" rows="7" class="border-2 hover:border-[#82498c] transition-all" required></textarea>
+                    <textarea name="sp_req" id="special_request" rows="7" class="border-2 hover:border-[#82498c] transition-all"></textarea>
                 </label>
             </div>
             <button type="submit" class="px-5 py-2 w-[20%] rounded-md hover:bg-green-700 transition-all bg-green-600 text-white">Submit</button>
