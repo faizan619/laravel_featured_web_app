@@ -1,4 +1,4 @@
-<div class="">
+<div class="flex justify-center h-[34rem]">
     <div class="flex ">
         <div class="flex-1 px-5 self-center flex justify-center items-center">
             <div class="flex flex-col gap-5 items-start w-[70%]">

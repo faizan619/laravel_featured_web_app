@@ -1,9 +1,9 @@
 @extends('masterlayout')
 
 @section('title')
-    Task | Featured Manager
+    Booking Page | Featured Manager
 @endsection
 
 @section('body')
-    @include("todo.todoform");
+    @include('booking.bookform')
 @endsection

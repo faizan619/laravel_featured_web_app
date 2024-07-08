@@ -2,8 +2,9 @@
 
 @section('body')
 @include('page.landing')
+@include('page.booklanding')
 @endsection
 
 @section('title')
-    Home | Task Manager
+    Home | Featured Manager
 @endsection
