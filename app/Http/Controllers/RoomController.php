@@ -14,13 +14,12 @@ class RoomController extends Controller
     public function index()
     {
         $rooms = Room::get();
-        // return $rooms;
         if(Auth::check()){
-            return view('bookingpage',compact('rooms'));
-        }
-        else{
+            return view('booking.viewbook',compact('rooms'));
+        }else{
             return redirect()->route('loginpage');
         }
+        
     }
 
     /**
@@ -28,7 +27,12 @@ class RoomController extends Controller
      */
     public function create()
     {
-        //
+        if(Auth::check()){
+            return view('bookingpage');
+        }
+        else{
+            return redirect()->route('loginpage');
+        }
     }
 
     /**
@@ -36,7 +40,32 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $validated_room = $request->validate([
+            'name'=>"required",
+            'email'=>'required|email',
+            'room_type'=>'required',
+            'guest'=>'required|numeric',
+            'arrival_date'=>'required',
+            'arrival_time'=>'required',
+            'departure_date'=>'required',
+            'departure_time'=>'required',
+            'pickup'=>'required',
+            'sp_req'=>'nullable'
+        ]);
+        // return $validated_room;
+        if($validated_room){
+            // return $request;
+            $rooms = Room::create($validated_room);
+            if($rooms){
+                return redirect()->route('booking.index');
+            }
+            else{
+                return "Failed to Book the room";
+            }
+        }
+        else{
+            return "Enter Valid Data";
+        }
     }
 
     /**
