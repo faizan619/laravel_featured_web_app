@@ -13,7 +13,7 @@
             <p class="text-center italic text-xl font-extralight  capitalize">Here are the list of already booked rooms</p>
             <div class="flex flex-wrap gap-5 justify-evenly items-center mt-5">
                 @forelse ($rooms as $room)
-                    <div class="border hover:scale-105 hover:shadow-md hover:shadow-gray-400 transition-all p-2 rounded-md w-[30%] text-white flex flex-col gap-3 " style="background-image: url('assets/first_book.jpg');background-size: cover">
+                    <div class="border hover:shadow-md hover:shadow-gray-400 transition-all p-5 rounded-md w-[30%] text-white flex flex-col gap-3 " style="background-image: url('assets/first_book.jpg');background-size: cover">
                         <div class="flex justify-between">
                             <p class="uppercase">{{$room->name}}</p>
                             <p class=""> {{$room->email}}</p>
@@ -29,6 +29,16 @@
                         </div>
                         <div>
                             <p class="italic font-extralight">Total guest Visit : {{$room->guest}} with <span class="underline capitalize mx-2">{{$room->pickup}}</span> facility</p>
+                        </div>
+                        <div class="flex gap-10">
+                            <a href="{{route('booking.edit',$room->id)}}" class="flex-1 py-1 hover:scale-105 bg-blue-600 rounded-md hover:bg-blue-700 text-center">
+                                <button>Update</button>
+                            </a>
+                            <form action="{{route('booking.destroy',$room->id)}}" method="POST" class="flex-1 py-1 hover:scale-105 bg-red-600 rounded-md hover:bg-red-700 text-center">
+                                @csrf
+                                @method("DELETE")
+                                <button type="submit" class="">Delete</button>
+                            </form>
                         </div>
                     </div>
                 @empty

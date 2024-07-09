@@ -43,7 +43,7 @@ class UserController extends Controller
         ]);
         // return $credentials;
         if (Auth::attempt($data)) {
-            return redirect()->route('task.index');
+            return redirect()->route('home');
         }
         else{
             return redirect()->route('registerpage');
