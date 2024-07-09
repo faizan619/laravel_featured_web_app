@@ -1,7 +1,9 @@
 <div class="">
-    <div class="flex flex-col gap-5 items-center py-2">
+    <div class="flex flex-col gap-5 items-center">
         <h1 class="text-2xl font-bold text-[#82498c]">Manage Your Task</h1>
-        <div class="w-[50%] border p-5 rounded-md shadow-md shadow-black">
+        <div class="flex justify-between w-[90%]">
+
+        <div class="w-[45%] border p-5 rounded-md shadow-md shadow-black">
             <form action="{{ route('task.store') }}" method="POST" class="flex flex-col gap-7">
                 @csrf
                 <label for="name">
@@ -46,10 +48,9 @@
                     class="text-white bg-[#82498c] py-2 rounded-md hover:bg-[#54255c] transition-all">Submit</button>
             </form>
         </div>
-    </div>
-    <div class="flex mt-10 justify-center items-center">
-        <div class="w-[50%]">
-            @foreach ($users as $user)
+
+        <div class="w-[45%] shadow-md overflow-scroll h-[29rem] shadow-black p-3">
+            @forelse ($users as $user)
                 <div class="bg-[#37474f] flex flex-col gap-3 p-3 mb-5 rounded-md text-white">
                     <p class="uppercase font-bold">{{ $user->task_title }}</p>
                     <p class="capitalize">{{ $user->task_desc }}</p>
@@ -70,7 +71,17 @@
                     </a> --}}
                     </div>
                 </div>
-            @endforeach
+                @empty
+                <p>No Task Created...</p>
+            @endforelse
         </div>
+
     </div>
+
+
+
+    </div>
+    {{-- <div class="flex mt-10 justify-center items-center">
+
+    </div> --}}
 </div>

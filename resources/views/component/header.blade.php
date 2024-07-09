@@ -6,11 +6,11 @@
     </div>
     <div class="flex-1">
         <ul class="flex gap-8 ">
-            <a href="{{ route('task.index') }}" class="hover:underline text-xl ">
+            <a href="{{ route('task.index') }}" class="hover:underline text-lg ">
                 <li>Task App</li>
             </a>
-            <a href="#" class="hover:underline text-xl ">
-                <li>Create</li>
+            <a href="{{route('booking.index')}}" class="hover:underline text-lg ">
+                <li>Hotel Booking</li>
             </a>
             <a href="#" class="hover:underline text-xl ">
                 <li>Feedback</li>
@@ -19,11 +19,11 @@
     </div>
     <div class="flex gap-5 pl-5">
         @if (Auth::check())
-            <p class="text-xl capitalize px-5 py-1 rounded-md border cursor-not-allowed">{{Auth::user()->role}} : {{ Auth::user()->name }}</p>
+            <p class="text-lg capitalize px-5 py-1 rounded-md border cursor-not-allowed">{{Auth::user()->role}} : {{ Auth::user()->name }}</p>
             <form action="{{route('logout')}}" method="POST">
                 @csrf
                 @method("DELETE")
-                <button class="px-5 py-2 uppercase bg-white text-red-600 rounded-md hover:scale-105 transition-all">Logout</button>
+                <button class="px-5 py-2 capitalize bg-white text-red-600 rounded-md hover:scale-105 transition-all">Logout</button>
             </form>
         @else
             <a href="{{ route('loginpage') }}">
