@@ -1,19 +1,22 @@
 <div class="flex justify-between items-center px-5 h-16 bg-[#82498c] text-white">
-    <div class="flex-1">
+    <div class="">
         <a href="/">
             <h1 class="font-bold text-2xl font-serif cursor-grab">Features Site</h1>
         </a>
     </div>
-    <div class="flex-1">
-        <ul class="flex gap-8 ">
+    <div class="flex-1 pl-20">
+        <ul class="flex gap-8 w-full">
             <a href="{{ route('task.index') }}" class="hover:underline text-lg ">
                 <li>Task App</li>
             </a>
             <a href="{{route('booking.index')}}" class="hover:underline text-lg ">
                 <li>Hotel Booking</li>
             </a>
-            <a href="#" class="hover:underline text-xl ">
-                <li>Feedback</li>
+            <a href="{{route('interview.index')}}" class="hover:underline text-lg ">
+                <li>Interview Project</li>
+            </a>
+            <a href="{{route('image.index')}}" class="hover:underline text-lg ">
+                <li>Image Converter</li>
             </a>
         </ul>
     </div>

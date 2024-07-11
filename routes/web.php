@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\InterviewController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\UserController;
@@ -12,6 +13,7 @@ Route::get('/', function () {
 
 Route::resource('booking',RoomController::class);
 Route::resource('interview',InterviewController::class);
+Route::resource('pdf',PdfController::class);
 
 Route::resource('task',TodoController::class);
 Route::view('/login','page.login')->name('loginpage');
