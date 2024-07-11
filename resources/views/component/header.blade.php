@@ -15,7 +15,7 @@
             <a href="{{route('interview.index')}}" class="hover:underline text-lg ">
                 <li>Interview Project</li>
             </a>
-            <a href="{{route('image.index')}}" class="hover:underline text-lg ">
+            <a href="{{route('pdf.index')}}" class="hover:underline text-lg ">
                 <li>Image Converter</li>
             </a>
         </ul>
